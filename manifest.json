@@ -7,6 +7,8 @@
   "permissions": ["tabs", "scripting"],
   "host_permissions": ["https://habitica.com/*"],
   "icons": {
-    "128": "assets/HabFix128x128.png"
+    "128": "assets/HabFix128.png",
+    "48": "assets/HabFix48.png",
+    "16": "assets/HabFix16.png"
   }
 }
