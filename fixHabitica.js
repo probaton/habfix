@@ -27,13 +27,16 @@ function moveMarie() {
   }
 }
 
-console.log('hello?');
-const interval = setInterval(() => {
-  try {
-    removeLastNavItem();
-    removeRewards();
-    moveMarie();
-  } finally {
-    clearInterval(interval);
-  }
-}, 200);
+function fixHabitica() {
+  const interval = setInterval(() => {
+    try {
+      removeLastNavItem();
+      removeRewards();
+      moveMarie();
+    } finally {
+      clearInterval(interval);
+    }
+  }, 200);
+}
+
+fixHabitica();
