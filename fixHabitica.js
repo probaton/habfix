@@ -3,10 +3,10 @@ function getElementByXpath(xpath, parent) {
   return document.evaluate(xpath, parent, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 }
 
-function removeLastNavItem() {
-  navItems = document.querySelectorAll('li.topbar-item.droppable');
-  if (navItems) {
-    navItems[navItems.length - 1].remove();
+function pruneNavBar() {
+  navItems = document.querySelectorAll('li.topbar-item');
+  for (let itemCount = navItems.length; itemCount > 7; itemCount--) {
+    navItems[itemCount - 1].remove();
   }
 }
 
@@ -30,7 +30,7 @@ function moveMarie() {
 function fixHabitica() {
   const interval = setInterval(() => {
     try {
-      removeLastNavItem();
+      pruneNavBar();
       removeRewards();
       moveMarie();
     } finally {
