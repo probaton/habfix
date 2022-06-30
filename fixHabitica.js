@@ -12,8 +12,8 @@ function pruneNavBar() {
 
 function removeRewards() {
   document.querySelector('.reward').remove();
-  var cols = document.querySelectorAll('div.tasks-column');
-  for (var i = 0; i < cols.length; i++) {
+  const cols = document.querySelectorAll('div.tasks-column');
+  for (let i = 0; i < cols.length; i++) {
     cols[i].style.flex = '0 0 33%';
     cols[i].style['max-width'] = '33%';
   }
@@ -27,9 +27,17 @@ function moveMarie() {
   }
 }
 
+function bumpToDoTabIndex() {
+  const toDoTextArea = document.querySelector('.todo textarea.quick-add');
+  if (toDoTextArea) {
+    toDoTextArea.tabIndex = 1;
+  }
+}
+
 function fixHabitica() {
   const interval = setInterval(() => {
     try {
+      bumpToDoTabIndex();
       pruneNavBar();
       removeRewards();
       moveMarie();
