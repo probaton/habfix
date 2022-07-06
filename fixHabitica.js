@@ -27,17 +27,24 @@ function moveMarie() {
   }
 }
 
-function bumpToDoTabIndex() {
+function focusToDoTextArea() {
   const toDoTextArea = document.querySelector('.todo textarea.quick-add');
   if (toDoTextArea) {
-    toDoTextArea.tabIndex = 1;
+    toDoTextArea.focus();
   }
+}
+
+function focusToDoTextAreaOnFocus() {
+  focusToDoTextArea();
+  addEventListener('focus', () => {
+    focusToDoTextArea();
+  });
 }
 
 function fixHabitica() {
   const interval = setInterval(() => {
     try {
-      bumpToDoTabIndex();
+      focusToDoTextAreaOnFocus();
       pruneNavBar();
       removeRewards();
       moveMarie();
