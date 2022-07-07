@@ -39,6 +39,7 @@ function focusToDoTextAreaOnFocus() {
   addEventListener('focus', () => {
     focusToDoTextArea();
   });
+  document.querySelectorAll('.quick-add-tip').forEach(tip => tip.remove());
 }
 
 function fixHabitica() {
