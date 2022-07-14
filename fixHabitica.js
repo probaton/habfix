@@ -5,7 +5,7 @@ function getElementByXpath(xpath, parent) {
 
 function pruneNavBar() {
   navItems = document.querySelectorAll('li.topbar-item');
-  for (let itemCount = navItems.length; itemCount > 7; itemCount--) {
+  for (let itemCount = navItems.length; itemCount > 6; itemCount--) {
     navItems[itemCount - 1].remove();
   }
 }
