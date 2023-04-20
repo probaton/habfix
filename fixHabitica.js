@@ -11,7 +11,12 @@ function pruneNavBar() {
 }
 
 function removeRewards() {
-  document.querySelector('.reward').remove();
+  const rewardColumn = document.querySelector('.reward');
+  if (!rewardColumn) {
+    return console.log('HabFix: Rewards column not found');
+  }
+
+  rewardColumn.remove();
   const cols = document.querySelectorAll('div.tasks-column');
   for (let i = 0; i < cols.length; i++) {
     cols[i].style.flex = '0 0 33%';
@@ -31,14 +36,14 @@ function focusToDoTextArea() {
   const toDoTextArea = document.querySelector('.todo textarea.quick-add');
   if (toDoTextArea) {
     toDoTextArea.focus();
+  } else {
+    console.info('HabFix: To-do text area not found');
   }
 }
 
 function focusToDoTextAreaOnFocus() {
   focusToDoTextArea();
-  addEventListener('focus', () => {
-    focusToDoTextArea();
-  });
+  addEventListener('focus', focusToDoTextArea);
   document.querySelectorAll('.quick-add-tip').forEach(tip => tip.remove());
 }
 
