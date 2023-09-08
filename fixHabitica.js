@@ -13,7 +13,7 @@ function pruneNavBar() {
 function removeRewards() {
   const rewardColumn = document.querySelector('.reward');
   if (!rewardColumn) {
-    return console.log('HabFix: Rewards column not found');
+    return console.info('HabFix: Rewards column not found');
   }
 
   rewardColumn.remove();
