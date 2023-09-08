@@ -3,6 +3,10 @@
   "description": "Streamline habitica.com",
   "version": "1.0",
   "manifest_version": 3,
+  "action": {
+    "default_popup": "options.html",
+    "default_icon": "assets/HabFix128.png"
+  },
   "background": { "service_worker": "background.js" },
   "permissions": ["tabs", "scripting"],
   "host_permissions": ["https://habitica.com/*"],
