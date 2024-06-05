@@ -21,7 +21,24 @@ function removeRewards() {
   for (let i = 0; i < cols.length; i++) {
     cols[i].style.flex = '0 0 33%';
     cols[i].style['max-width'] = '33%';
+    cols[i].style.padding = '0px 4px 0px 4px';
   }
+}
+
+function removeSearchBar() {
+  const searchBar = document.querySelector('div.row.tasks-navigation');
+  if (!searchBar) {
+    return console.info('HabFix: Search bar not found');
+  }
+  searchBar.remove();
+}
+
+function removeFooter() {
+  const footer = document.querySelector('footer');
+  if (!footer) {
+    return console.info('HabFix: Footer not found');
+  }
+  footer.remove();
 }
 
 function moveMarie() {
@@ -53,6 +70,8 @@ function fixHabitica() {
       focusToDoTextAreaOnFocus();
       pruneNavBar();
       removeRewards();
+      removeSearchBar();
+      removeFooter();
       moveMarie();
     } finally {
       clearInterval(interval);
