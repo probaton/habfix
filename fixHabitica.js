@@ -58,6 +58,22 @@ function focusToDoTextArea() {
   }
 }
 
+function removeNegativeHabitButtons() {
+  [...document.querySelectorAll('.type_habit')].forEach(removeNegativeHabitButton);
+}
+
+function removeNegativeHabitButton(habitElement) {
+  const negativeHabitButton = habitElement.querySelector('.right-control');
+  if (negativeHabitButton) {
+    negativeHabitButton.remove();
+    const contentElement = habitElement.querySelector('.task-content');
+    if (contentElement) {
+      contentElement.style['border-top-right-radius'] = '4px';
+      contentElement.style['border-bottom-right-radius'] = '4px';
+    }
+  }
+}
+
 function focusToDoTextAreaOnFocus() {
   focusToDoTextArea();
   addEventListener('focus', focusToDoTextArea);
@@ -73,6 +89,7 @@ function fixHabitica() {
       removeSearchBar();
       removeFooter();
       moveMarie();
+      removeNegativeHabitButtons();
     } finally {
       clearInterval(interval);
     }
