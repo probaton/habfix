@@ -11,18 +11,20 @@ function pruneNavBar() {
 }
 
 function removeRewards() {
+  [...document.querySelectorAll('.column-background')].forEach(e => e.remove());
+
   const rewardColumn = document.querySelector('.reward');
   if (!rewardColumn) {
     return console.info('HabFix: Rewards column not found');
   }
 
   rewardColumn.remove();
-  const cols = document.querySelectorAll('div.tasks-column');
-  for (let i = 0; i < cols.length; i++) {
-    cols[i].style.flex = '0 0 33%';
-    cols[i].style['max-width'] = '33%';
-    cols[i].style.padding = '0px 4px 0px 4px';
-  }
+  [...document.querySelectorAll('div.tasks-column')].forEach(col => {
+    const colWidth = col.classList.contains('todo') ? '40' : '30';
+    col.style.flex = `0 0 ${colWidth}%`;
+    col.style['max-width'] = `${colWidth}%`;
+    col.style.padding = '0px 4px 0px 4px';
+  });
 }
 
 function removeSearchBar() {
